@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block graphs %}
+<h3>GRAPHS</h3>
+<img src="static/plots/linear/effOverYears.png">
+<img src="static/plots/linear/effOverManpower.png">
+<img src="static/plots/linear/dispatchOverYears.png">
+<img src="static/plots/linear/dispatchOverSales.png">
+<img src="static/plots/linear/inhouseOverYears.png">
+<img src="static/plots/linear/outsourcedOverYears.png">
+{% endblock graphs %}
+
+{% block content %}
+<h3><a href="{{ url_for('linear_userInputPred') }}" target="user-predict-frame">User Input Prediction</a></h3>
+{% endblock content %}

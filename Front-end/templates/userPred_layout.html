@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Input Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="userinput">
+    <h1 id="special" style="font-size:25px; color: rgb(36, 9, 99)">PREDICTION ON USER INPUT</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.financial_year.label }}
+            {{ form.financial_year }}
+        </div>
+        {% block customInputEff %}
+        {% endblock customInputEff %}
+        <div>
+            {{ form.sales.label }}
+            {{ form.sales }}
+        </div><br>
+        <div>
+            {{ form.booked.label }}
+            {{ form.booked }}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+    
+    {% if not predicted_data.empty %}
+    <h3 id="special">PREDICTED DATA</h3>
+    <br>
+    <table class="predicted-data-table">
+        <tr>
+            <th>Sales</th>
+            <th>Booked Hours</th>
+            <th>Efficiency</th>
+            <th>Dispatch SMH</th>
+            <th>Inhouse SMH</th>
+            <th>Outsourced SMH</th>
+        </tr>
+        <tr>
+            <td>{{ predicted_data['sales'][0] }}</td>
+            <td>{{ predicted_data['booked'][0] }}</td>
+            <td>{{ predicted_data['efficiency'][0] }}</td>
+            <td>{{ predicted_data['dispatch_smh'][0] }}</td>
+            <td>{{ predicted_data['inhouse_smh'][0] }}</td>
+            <td>{{ predicted_data['outsourced_smh'][0] }}</td>
+        </tr>
+    </table><br>
+    {% endif %}
+
+</body>
+</html>

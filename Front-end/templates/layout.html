@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav>
+        <h1 id="special" style="font-size: 30px;color: rgb(16, 11, 61);">{{ title }} model</h1><br>
+    <h3 id="special">HISTORICAL DATA</h3>
+    <table>
+        <tr>
+            <th>Financial year</th>
+            <th>Sales</th>
+            <th>Man power</th>
+            <th>Efficiency</th>
+            <th>Dispatch SMH</th>
+            <th>Inhouse SMH</th>
+            <th>Outsourced SMH</th>
+        </tr>
+        {% for id, row in historic_data.items() %}
+        <tr>
+            <td>{{ row['financial_year'] }}</td>
+            <td>{{ row['sales'] }}</td>
+            <td>{{ row['man_power'] }}</td>
+            <td>{{ row['efficiency'] }}</td>
+            <td>{{ row['dispatch_smh'] }}</td>
+            <td>{{ row['inhouse_smh'] }}</td>
+            <td>{{ row['outsourced_smh'] }}</td>
+        </tr>
+        {% endfor %}
+    </table><br>
+
+    <h3 id="special">PREDICTED DATA</h3>
+    {% block user_input %}
+    {% endblock user_input %}
+    {% if not predicted_data.empty %}
+    <br>
+    <table>
+        <tr>
+            <th>Financial year</th>
+            <th>Sales</th>
+            <th>Man power</th>
+            <th>Efficiency</th>
+            <th>Dispatch SMH</th>
+            <th>Inhouse SMH</th>
+            <th>Outsourced SMH</th>
+        </tr>
+        {% for i in range(6) %}
+        <tr>
+            <td>{{ predicted_data['financial_year'][i] }}</td>
+            <td>{{ predicted_data['sales'][i] }}</td>
+            <td>{{ predicted_data['man_power'][i] }}</td>
+            <td>{{ predicted_data['efficiency'][i] }}</td>
+            <td>{{ predicted_data['dispatch_smh'][i] }}</td>
+            <td>{{ predicted_data['inhouse_smh'][i] }}</td>
+            <td>{{ predicted_data['outsourced_smh'][i] }}</td>
+        </tr>
+        {% endfor %}
+    </table><br>
+    {% endif %}
+
+    {% block graphs %}
+    {% endblock graphs %}
+    <br>
+    {% block content %}
+    {% endblock content%}
+
+</nav>
+    </body>
+</html>

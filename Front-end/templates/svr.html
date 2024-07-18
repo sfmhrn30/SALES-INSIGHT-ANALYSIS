@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block graphs %}
+<h3>GRAPHS</h3>
+<img src="static/plots/SVR/effOverYears.png">
+<img src="static/plots/SVR/effOverManpower.png">
+<img src="static/plots/SVR/dispatchOverYears.png">
+<img src="static/plots/SVR/dispatchOverSales.png">
+<img src="static/plots/SVR/inhouseOverYears.png">
+<img src="static/plots/SVR/outsourcedOverYears.png">
+{% endblock graphs %}
+
+{% block content %}
+<h3><a href="{{ url_for('svr_userInputPred') }}" target="user-predict-frame">User Input Prediction</a></h3>
+{% endblock content %}

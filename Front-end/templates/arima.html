@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block graphs %}
+<h3>GRAPHS</h3>
+<img src="static/plots/ARIMA/effOverYears.png">
+<img src="static/plots/ARIMA/dispatchOverYears.png">
+<img src="static/plots/ARIMA/inhouseOverYears.png">
+<img src="static/plots/ARIMA/outsourcedOverYears.png">
+{% endblock graphs %}
+
+{% block content %}
+<h3><a href="{{ url_for('arima_userInputPred') }}" target="user-predict-frame">User Input Prediction</a></h3>
+{% endblock content %}

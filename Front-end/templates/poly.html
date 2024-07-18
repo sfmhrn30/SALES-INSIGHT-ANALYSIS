@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block graphs %}
+<h3>GRAPHS</h3>
+<img src="static/plots/polynomial/effOverYears.png">
+<img src="static/plots/polynomial/effOverManpower.png">
+<img src="static/plots/polynomial/dispatchOverYears.png">
+<img src="static/plots/polynomial/dispatchOverSales.png">
+<img src="static/plots/polynomial/inhouseOverYears.png">
+<img src="static/plots/polynomial/outsourcedOverYears.png">
+{% endblock graphs %}
+
+{% block content %}
+<h3><a href="{{ url_for('poly_userInputPred') }}" target="user-predict-frame">User Input Prediction</a></h3>
+{% endblock content %}

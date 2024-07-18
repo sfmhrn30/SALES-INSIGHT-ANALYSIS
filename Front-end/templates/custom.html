@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block user_input %}
+<form action="" method="post">
+  {{ form.hidden_tag() }}
+  <div>
+    {{ form.rate.label }}
+    {{ form.rate }}
+  </div>
+  <div>
+    {{ form.submit() }}
+  </div>
+</form>
+{% endblock user_input %}
+
+{% block graphs %}
+{% if graphs %}
+<h3>GRAPHS</h3>
+<img src="data:image/png;base64,{{ graphs['efficiency'] }}" alt="Efficiency Graph">
+<img src="data:image/png;base64,{{ graphs['inhouse_smh'] }}" alt="Inhouse SMH Graph">
+<img src="data:image/png;base64,{{ graphs['outsourced_smh'] }}" alt="Outsourced SMH Graph">
+<img src="data:image/png;base64,{{ graphs['dispatch_smh'] }}" alt="Dispatch SMH Graph">
+{% endif %}
+{% endblock graphs %}
+
+{% block content %}
+<h3><a href="{{ url_for('custom_userInputPred') }}" target="user-predict-frame">User Input Prediction</a></h3>
+{% endblock content %}
+

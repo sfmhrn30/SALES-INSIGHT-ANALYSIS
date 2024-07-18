@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="bodyBG">
+    <header class="header">
+        <div class="header-content">
+            <img class="logo" src="static\css\hal_logo_bg.jpg" alt="Logo">
+            <h1 id="special" class="heading">SALES INSIGHT ANALYSIS</h1>
+        </div>
+        
+    </header>
+    <main>
+        <nav id="special">
+            <!-- <h1>Select Analysis Model</h1>
+            <h3><a href="{{ url_for('custom') }}" target="model-frame">Custom</a></h3>
+            <h3><a href="{{ url_for('optimized') }}" target="model-frame">Optimized</a></h3>
+            <h3><a href="{{ url_for('linear') }}" target="model-frame">Linear</a></h3>
+            <h3><a href="{{ url_for('poly') }}" target="model-frame">Poly</a></h3>
+            <h3><a href="{{ url_for('svr') }}" target="model-frame">SVR</a></h3>
+            <h3><a href="{{ url_for('arima') }}" target="model-frame">ARIMA</a></h3> -->
+            <table>
+                    <tr>
+                        <h1>SELECT ANALYSIS MODEL</h1>
+                    </tr>
+                    <tr>
+                        <h3><a href="{{ url_for('custom') }}" target="model-frame">Custom</a></h3>
+                    </tr>
+                    <tr>
+                        <h3><a href="{{ url_for('optimized') }}" target="model-frame">Optimized</a></h3>
+                    </tr>
+                    <tr>            
+                        <h3><a href="{{ url_for('linear') }}" target="model-frame">Linear</a></h3>
+                    </tr>
+                    <tr>            
+                        <h3><a href="{{ url_for('poly') }}" target="model-frame">Poly</a></h3>
+                    </tr>
+                    <tr>            
+                        <h3><a href="{{ url_for('svr') }}" target="model-frame">SVR</a></h3>
+                    </tr>
+                    <tr>            
+                        <h3><a href="{{ url_for('arima') }}" target="model-frame">ARIMA</a></h3>
+                    </tr> 
+                </table>
+        </nav>
+        <section>
+            <iframe name="model-frame" class="model-frame"></iframe>
+            <iframe name="user-predict-frame" class="user-predict-frame"></iframe>
+        </section>
+    </main>
+</body>
+</html>
+
